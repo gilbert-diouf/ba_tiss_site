@@ -28,10 +28,11 @@ header p {
 
 /* PHOTO ARTISTE */
 .photo-artiste {
-  width: 250px;  /* réduit la taille de la photo */
-  height: auto;
-  border-radius: 10px; /* arrondit légèrement les coins pour un look moderne */
-  margin-top: 20px;
+    width: 250px;       /* largeur réduite pour que la photo soit moins grande */
+    height: auto;       /* garde les proportions originales */
+    border-radius: 10px; /* arrondit légèrement les coins */
+    margin-top: 20px;   /* espace au-dessus de la photo */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 
