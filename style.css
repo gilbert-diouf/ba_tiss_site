@@ -1,46 +1,129 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   background: linear-gradient(to bottom, #000000, #2c003e);
-  color: white;
+  color: #f5f5f5;
   text-align: center;
 }
 
+/* HEADER */
 header {
-  padding: 20px;
+  padding: 30px 20px;
 }
-
 header h1 {
   font-size: 3em;
-  margin: 0;
+  margin: 10px 0;
+  color: #ffd700; /* doré */
+}
+header p {
+  font-style: italic;
+  color: #ccc;
 }
 
-.section {
-  margin: 40px 20px;
+/* LOGO */
+.logo {
+  width: 100px;   /* réduit la taille du logo */
+  height: auto;
 }
 
-.bio {
-  max-width: 800px;
+/* PHOTO ARTISTE */
+.photo-artiste {
+  width: 250px;  /* réduit la taille de la photo */
+  height: auto;
+  border-radius: 10px; /* arrondit légèrement les coins pour un look moderne */
+  margin-top: 20px;
+}
+
+
+/* HERO */
+.hero {
+  margin: 40px 0;
+}
+.hero h2 {
+  font-size: 2em;
+  color: #ffd700;
+}
+.hero .btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #ffd700;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.hero .btn:hover {
+  background-color: #e6c200;
+}
+
+/* BIOGRAPHIE */
+/*.bio {
+  max-width: 900px;
   margin: auto;
   text-align: justify;
-  line-height: 1.6;
-}
+  line-height: 1.8;
+  padding: 20px;
+  font-size: 1.1em;
+}*/
 
 .bio h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2em;
+  color: #ffd700; /* doré pour mettre en valeur */
+}
+
+.bio p {
+  margin-bottom: 18px;
+}
+
+.bio{
+    max-width:800px;
+    margin:auto;
+    padding:40px 20px;
+    line-height:1.7;
+}
+
+
+/* SOCIAL ICONS */
+.social {
+  margin: 50px 0;
+}
+.social h2 {
+  color: #ffd700;
   margin-bottom: 20px;
-  font-size: 1.8em;
-  /*color: #ffd700;*/ /* jaune doré pour mettre en valeur */
 }
-
-.platforms img {
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.social-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.social-link img {
   width: 50px;
-  margin: 10px;
   filter: invert(100%); /* rend les logos blancs */
+  transition: 0.3s;
+}
+.social-link:hover img {
+  transform: scale(1.2);
+}
+.social-link span {
+  display: block;
+  margin-top: 8px;
 }
 
+/* FOOTER */
 footer {
   margin-top: 40px;
   padding: 20px;
   font-size: 0.9em;
   background-color: #111;
+  color: #aaa;
 }
