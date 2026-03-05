@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #000000, #2c003e);
+  color: white;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.section {
+  margin: 40px 20px;
+}
+
+.bio {
+  max-width: 800px;
+  margin: auto;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.bio h2 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  /*color: #ffd700;*/ /* jaune doré pour mettre en valeur */
+}
+
+.platforms img {
+  width: 50px;
+  margin: 10px;
+  filter: invert(100%); /* rend les logos blancs */
+}
+
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 0.9em;
+  background-color: #111;
+}
