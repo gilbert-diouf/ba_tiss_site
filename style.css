@@ -256,10 +256,12 @@ footer {
 }
 
 /* Responsive mobile */
+@/* Responsive mobile */
 @media (max-width: 600px) {
   .album-actions {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
