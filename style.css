@@ -50,16 +50,6 @@ header p {
   background-color: #e6c200;
 }
 
-/* BIOGRAPHIE */
-/*.bio {
-  max-width: 900px;
-  margin: auto;
-  text-align: justify;
-  line-height: 1.8;
-  padding: 20px;
-  font-size: 1.1em;
-}*/
-
 .bio h2 {
   text-align: center;
   margin-bottom: 25px;
@@ -147,7 +137,7 @@ footer {
 }
 
 /* Style général des boutons */
-.btn-wave, .btn-orange, .btn-whatsapp {
+.btn-wave, .btn-orange, .btn-whatsapp, .btn-call {
   display: inline-flex;
   align-items: center;
   margin: 10px;
@@ -158,6 +148,17 @@ footer {
   border-radius: 5px;
   transition: 0.3s;
 }
+/* Bouton Appeler */
+.btn-call {
+  background-color: #4CAF50; /* vert téléphone */
+  color: #fff;
+
+}
+
+.btn-call:hover {
+  background-color: #3d8b40; /* vert plus foncé au survol */
+}
+
 
 /* Bouton Wave */
 .btn-wave {
@@ -256,7 +257,7 @@ footer {
 }
 
 /* Responsive mobile */
-@/* Responsive mobile */
+/* Responsive mobile */
 @media (max-width: 600px) {
   .album-actions {
     flex-direction: row;
