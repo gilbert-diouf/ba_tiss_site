@@ -26,15 +26,6 @@ header p {
   height: auto;
 }
 
-/* PHOTO ARTISTE */
-.photo-artiste {
-    width: 250px;       /* largeur réduite pour que la photo soit moins grande */
-    height: auto;       /* garde les proportions originales */
-    border-radius: 10px; /* arrondit légèrement les coins */
-    margin-top: 20px;   /* espace au-dessus de la photo */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-
 
 /* HERO */
 .hero {
@@ -200,4 +191,76 @@ footer {
 .btn-whatsapp:hover {
   background-color: #1ebe5d; /* vert plus foncé au survol */
 }
+
+.album {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.album .photo-artiste {
+  max-width: 250px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.album-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-listen, .btn-wave, .btn-orange {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Bouton écouter */
+.btn-listen {
+  background-color: #ffd700;
+  color: #000;
+}
+.btn-listen:hover {
+  background-color: #e6c200;
+}
+
+/* Bouton Wave */
+.btn-wave {
+  background-color: #1E90FF;
+  color: #fff;
+}
+.btn-wave:hover {
+  background-color: #187bcd;
+}
+
+/* Bouton Orange Money */
+.btn-orange {
+  background-color: #FF6600;
+  color: #fff;
+}
+.btn-orange:hover {
+  background-color: #cc5200;
+}
+
+/* Icônes */
+.icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+}
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+  .album-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 
