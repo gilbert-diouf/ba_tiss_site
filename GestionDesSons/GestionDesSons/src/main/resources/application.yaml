@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: GestionDesSons
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/site_music
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
