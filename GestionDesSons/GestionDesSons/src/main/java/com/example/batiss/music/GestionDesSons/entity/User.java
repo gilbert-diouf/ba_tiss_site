@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,9 +24,16 @@ public class User {
     @Column(nullable = false,length = 29)
     private String username;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 60)
     private String password;
 
     @Column(length = 25)
     private String email;
+
+    // Numéro Wave de l'acheteur (+221XXXXXXXXX)
+    @Column(unique = true, length = 15)
+    private String telephone;
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Transaction> transactions;
 }

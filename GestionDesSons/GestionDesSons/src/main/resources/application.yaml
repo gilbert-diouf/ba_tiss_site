@@ -6,7 +6,34 @@ spring:
     url: jdbc:mysql://localhost:3306/site_music
     username: root
     password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  # Désactiver Spring Security temporairement
+  security:
+    user:
+      name: admin
+      password: admin
+
+server:
+  port: 8080
+
+app:
+  secret-key: hghhjisadewderet56546546456454
+  expiration-time: 86400000
+  wave-url: https://pay.wave.com/m/M_sn_BR5I1NOjNKcr/c/sn/?amount=2000
+
+google:
+  drive:
+    file-id: TON_ID_FICHIER_DRIVE  # ← mets l'ID réel ici
+
+cors:
+  allowed-origins: "http://localhost:5500,http://127.0.0.1:5500"  # ← plus précis que "*"

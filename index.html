@@ -1,57 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ba Tiss - Musique Officielle</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ba Tiss - Musique Officielle</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <img src="images/logo.png" alt="Logo Ba Tiss" class="logo">
-    <h1>BA TISS</h1>
-    <p>Beatmaker • Artiste Gospel • Ingénieur du son • Infographiste</p>
+  <img src="images/logo.png" alt="Logo Ba Tiss" class="logo">
+  <h1>BA TISS</h1>
+  <p>Beatmaker • Artiste Gospel • Ingénieur du son • Infographiste</p>
 </header>
 
 <section class="album">
   <img src="images/Ba Tiss.jpeg" alt="Ba Tiss" class="photo-artiste">
-
   <h2>Nouvel Album : EPHATA</h2>
 
   <div class="video-container">
-    <iframe 
-      width="560" 
-      height="315" 
+    <iframe
+      width="560"
+      height="315"
       src="https://www.youtube.com/embed/YzSKYTibbPM?si=PWSjrS2QXP98i3cX"
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
   </div>
-  <div class="album-actions">
+</section>
 
-    <a href="https://pay.wave.com/m/M_sn_BR5I1NOjNKcr/c/sn/?amount=2000" class="btn-wave" target="_blank">
-      <img src="images/wave.png" alt="Wave" class="icon"> Payer avec Wave
-    </a>
+<!-- ===== SECTION PAIEMENT ===== -->
+<section class="paiement-section">
+  <h2>🎵 Télécharger l'album EPHATA</h2>
+  <p class="paiement-subtitle">Accès immédiat après paiement de <strong>2 000 FCFA</strong> via Wave</p>
 
-    <a href="https://orangemoney.sn/paiement/toncompte" class="btn-orange" target="_blank">
-      <img src="images/orange_money.png" alt="Orange Money" class="icon"> Payer avec Orange Money
+  <!-- ÉTAPE 1 -->
+  <div class="etape" id="etape1">
+    <div class="etape-badge">Étape 1 sur 3</div>
+    <p>Entre ton numéro Wave pour commencer</p>
+    <div class="input-group">
+      <span class="input-prefix">🇸🇳 +221</span>
+      <input type="tel" id="telephone" placeholder="7X XXX XX XX" maxlength="9" />
+    </div>
+    <button class="btn-paiement" onclick="initierCommande()">Continuer vers Wave</button>
+    <p id="erreur1" class="erreur"></p>
+  </div>
+
+  <!-- ÉTAPE 2 -->
+  <div class="etape hidden" id="etape2">
+    <div class="etape-badge">Étape 2 sur 3</div>
+    <p>Clique sur le bouton ci-dessous pour payer <strong>2 000 FCFA</strong> sur Wave</p>
+    <a id="lienWave" href="#" target="_blank" class="btn-wave-pay" onclick="afficherEtape3()">
+      💳 Payer 2 000 FCFA sur Wave
     </a>
+    <p class="paiement-note">⚠️ Reviens sur cette page après ton paiement</p>
+  </div>
+
+  <!-- ÉTAPE 3 -->
+  <div class="etape hidden" id="etape3">
+    <div class="etape-badge">Étape 3 sur 3</div>
+    <p>Ton paiement est effectué ? Confirme avec ton numéro Wave</p>
+    <div class="input-group">
+      <span class="input-prefix">🇸🇳 +221</span>
+      <input type="tel" id="telephone-confirm" placeholder="7X XXX XX XX" maxlength="9" />
+    </div>
+    <button class="btn-paiement" onclick="confirmerPaiement()">✅ Confirmer mon paiement</button>
+    <p id="erreur3" class="erreur"></p>
+  </div>
+
+  <!-- ÉTAPE 4 -->
+  <div class="etape hidden" id="etape4">
+    <div class="succes-icon">🎉</div>
+    <h3>Paiement confirmé !</h3>
+    <p>Ton lien est valable <strong>24h</strong> et utilisable <strong>1 seule fois</strong></p>
+    <button class="btn-download" onclick="telecharger()">⬇️ Télécharger l'album</button>
+    <p id="erreur4" class="erreur"></p>
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader hidden" id="loader">
+    <div class="spinner"></div>
+    <p>Traitement en cours...</p>
   </div>
 </section>
 
-
-
+<!-- BIOGRAPHIE -->
 <section class="bio">
-
-<h2>Biographie</h2>
-
-<div class="section bio">
+  <h2>Biographie</h2>
+  <div class="section bio">
     <h2>Ba Tiss : L'Écho d'une Âme Thiessoise</h2>
     <p><strong>Né sous les vents sahéliens de Thiès, au seuil des années 90,</strong><br>
     Jean Baptiste Faye, alias <strong>Ba Tiss</strong>, émerge comme une symphonie vivante, tissée de rythmes ancestraux et d'aspirations infinies. Depuis l'enfance, la musique est son souffle premier, un appel irrésistible qui pulse dans ses veines comme le tam-tam des griots.</p>
@@ -68,60 +107,161 @@
 
     <p><strong>Ba Tiss n'est pas qu'un artiste :</strong> il est un pont entre les époques, un tisseur de rêves sonores. De Thiès à l'infini, sa voix résonne : écoutez, et laissez-vous emporter. 🎤✨</p>
   </div>
-
 </section>
 
+<!-- RÉSEAUX SOCIAUX -->
 <section class="social">
-
-<h2>Suivez-moi sur</h2>
-
-<div class="social-icons">
-
-<a href="https://www.instagram.com/ba_tiss_beatz?igsh=c3FnN2xmdXVqN3k4" target="_blank" class="social-link">
-<img src="images/instagram.jpeg" alt="Instagram">
-<span>Instagram</span>
-</a>
-
-<a href="https://youtube.com/@jeanbaptistefaye1286?si=S_xWlRT9rJTsx3mB" target="_blank" class="social-link">
-<img src="images/youtube.png" alt="YouTube">
-<span>YouTube</span>
-</a>
-
-<a href="https://www.tiktok.com/@batissbeatz?_r=1&_t=ZS-94LoTbib6Rw" target="_blank" class="social-link">
-<img src="images/tiktok.png" alt="TikTok">
-<span>TikTok</span>
-</a>
-
-</div>
-
+  <h2>Suivez-moi sur</h2>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/ba_tiss_beatz?igsh=c3FnN2xmdXVqN3k4" target="_blank" class="social-link">
+      <img src="images/instagram.jpeg" alt="Instagram">
+      <span>Instagram</span>
+    </a>
+    <a href="https://youtube.com/@jeanbaptistefaye1286?si=S_xWlRT9rJTsx3mB" target="_blank" class="social-link">
+      <img src="images/youtube.png" alt="YouTube">
+      <span>YouTube</span>
+    </a>
+    <a href="https://www.tiktok.com/@batissbeatz?_r=1&_t=ZS-94LoTbib6Rw" target="_blank" class="social-link">
+      <img src="images/tiktok.png" alt="TikTok">
+      <span>TikTok</span>
+    </a>
+  </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact">
   <h2>Contact</h2>
-
   <p>
-    <strong>Manager :</strong> +221 77 746 11 77 
+    <strong>Manager :</strong> +221 77 746 11 77
     <a href="tel:+221777461177" class="btn-call">📞 Appeler</a>
-    <a href="https://wa.me/221777461177" class="btn-whatsapp" target="_blank">
-      <img src="images/whatsapp.jpeg" alt="Whatsapp" class="icon"> WhatsApp
-    </a>
   </p>
-
   <p>
-    <strong>Studio Blessing Records :</strong> +221 77 152 93 04 
+    <strong>Studio Blessing Records :</strong> +221 77 152 93 04
     <a href="tel:+221771529304" class="btn-call">📞 Appeler</a>
     <a href="https://wa.me/221771529304" class="btn-whatsapp" target="_blank">
       <img src="images/whatsapp.jpeg" alt="Whatsapp" class="icon"> WhatsApp
     </a>
   </p>
-
 </section>
 
-
 <footer>
-
-© 2026 Ba Tiss – Tous droits réservés 
+  © 2026 Ba Tiss – Tous droits réservés
 </footer>
+
+<script>
+  // 🔧 Change cette URL quand tu mets le site en ligne
+  const API_URL = "http://localhost:8080/api";
+  let tokenGlobal = "";
+
+  function afficherLoader(show) {
+    document.getElementById("loader").classList.toggle("hidden", !show);
+  }
+
+  function afficherEtape(num) {
+    [1, 2, 3, 4].forEach(n => {
+      document.getElementById("etape" + n).classList.add("hidden");
+    });
+    document.getElementById("etape" + num).classList.remove("hidden");
+  }
+
+  function afficherEtape3() {
+    const tel = document.getElementById("telephone").value;
+    document.getElementById("telephone-confirm").value = tel;
+    setTimeout(() => afficherEtape(3), 500);
+  }
+
+  async function initierCommande() {
+    const telephone = document.getElementById("telephone").value.trim();
+    const erreur = document.getElementById("erreur1");
+    erreur.textContent = "";
+
+    if (telephone.length < 9) {
+      erreur.textContent = "⚠️ Entre un numéro valide à 9 chiffres";
+      return;
+    }
+
+    afficherLoader(true);
+    document.getElementById("etape1").classList.add("hidden");
+
+    try {
+      const res = await fetch(`${API_URL}/commande/initier`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ telephone: "+221" + telephone })
+      });
+
+      const data = await res.json();
+      afficherLoader(false);
+
+      if (res.ok) {
+        document.getElementById("lienWave").href = data.lienWave;
+        afficherEtape(2);
+      } else {
+        document.getElementById("etape1").classList.remove("hidden");
+        erreur.textContent = "❌ " + (data.message || "Erreur, réessaie");
+      }
+    } catch (e) {
+      afficherLoader(false);
+      document.getElementById("etape1").classList.remove("hidden");
+      erreur.textContent = "❌ Impossible de contacter le serveur";
+    }
+  }
+
+  async function confirmerPaiement() {
+    const telephone = document.getElementById("telephone-confirm").value.trim();
+    const erreur = document.getElementById("erreur3");
+    erreur.textContent = "";
+
+    if (telephone.length < 9) {
+      erreur.textContent = "⚠️ Entre ton numéro Wave";
+      return;
+    }
+
+    afficherLoader(true);
+    document.getElementById("etape3").classList.add("hidden");
+
+    try {
+      const res = await fetch(`${API_URL}/commande/confirmer`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ telephone: "+221" + telephone })
+      });
+
+      const data = await res.json();
+      afficherLoader(false);
+
+      if (res.ok) {
+        tokenGlobal = data.token;
+        afficherEtape(4);
+      } else {
+        document.getElementById("etape3").classList.remove("hidden");
+        erreur.textContent = "❌ " + (data.message || "Paiement non trouvé. As-tu bien payé ?");
+      }
+    } catch (e) {
+      afficherLoader(false);
+      document.getElementById("etape3").classList.remove("hidden");
+      erreur.textContent = "❌ Impossible de contacter le serveur";
+    }
+  }
+
+  async function telecharger() {
+    const erreur = document.getElementById("erreur4");
+    erreur.textContent = "";
+
+    try {
+      const res = await fetch(`${API_URL}/download/${tokenGlobal}`);
+      const data = await res.json();
+
+      if (res.ok) {
+        window.open(data.lien, "_blank");
+      } else {
+        erreur.textContent = "❌ " + (data.message || "Lien invalide ou expiré");
+      }
+    } catch (e) {
+      erreur.textContent = "❌ Impossible de contacter le serveur";
+    }
+  }
+</script>
 
 </body>
 </html>
