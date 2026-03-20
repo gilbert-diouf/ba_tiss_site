@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GestionDesSonsApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(GestionDesSonsApplication.class, args);
 	}
 

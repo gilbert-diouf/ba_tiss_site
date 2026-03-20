@@ -3,10 +3,10 @@ spring:
     name: GestionDesSons
 
   datasource:
-    url: jdbc:mysql://localhost:3306/site_music
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATABASE_URL:jdbc:postgresql://dpg-d6th3b24d50c73capvbg-a/batiss_music_db}
+    username: ${DATABASE_USERNAME:batiss_music_db_user}
+    password: ${DATABASE_PASSWORD:6CrKaLB4Q0n959jXPosYoMGKc4BggdFA}
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
@@ -14,8 +14,11 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
 
   # Désactiver Spring Security temporairement
   security:
@@ -24,7 +27,7 @@ spring:
       password: admin
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 app:
   secret-key: hghhjisadewderet56546546456454
