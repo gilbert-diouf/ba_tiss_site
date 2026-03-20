@@ -176,36 +176,42 @@
     erreur.textContent = "";
 
     if (telephone.length < 9) {
-      erreur.textContent = "⚠️ Entre un numéro valide à 9 chiffres";
-      return;
+        erreur.textContent = "⚠️ Entre un numéro valide à 9 chiffres";
+        return;
     }
+
+    // Message d'attente
+    erreur.style.color = "#ffd700";
+    erreur.textContent = "⏳ Connexion au serveur... (peut prendre 30-60 secondes)";
 
     afficherLoader(true);
     document.getElementById("etape1").classList.add("hidden");
 
     try {
-      const res = await fetch(`${API_URL}/commande/initier`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ telephone: "+221" + telephone })
-      });
+        const res = await fetch(`${API_URL}/commande/initier`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ telephone: "+221" + telephone })
+        });
 
-      const data = await res.json();
-      afficherLoader(false);
+        const data = await res.json();
+        afficherLoader(false);
 
-      if (res.ok) {
-        document.getElementById("lienWave").href = data.lienWave;
-        afficherEtape(2);
-      } else {
-        document.getElementById("etape1").classList.remove("hidden");
-        erreur.textContent = "❌ " + (data.message || "Erreur, réessaie");
-      }
+        if (res.ok) {
+            document.getElementById("lienWave").href = data.lienWave;
+            afficherEtape(2);
+        } else {
+            document.getElementById("etape1").classList.remove("hidden");
+            erreur.style.color = "#ff6b6b";
+            erreur.textContent = "❌ " + (data.message || "Erreur, réessaie");
+        }
     } catch (e) {
-      afficherLoader(false);
-      document.getElementById("etape1").classList.remove("hidden");
-      erreur.textContent = "❌ Impossible de contacter le serveur";
+        afficherLoader(false);
+        document.getElementById("etape1").classList.remove("hidden");
+        erreur.style.color = "#ff6b6b";
+        erreur.textContent = "❌ Serveur en démarrage, réessaie dans 1 minute";
     }
-  }
+}
 
   async function confirmerPaiement() {
     const telephone = document.getElementById("telephone-confirm").value.trim();
